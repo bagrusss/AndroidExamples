@@ -8,8 +8,6 @@ import android.widget.RemoteViewsService
  */
 class UpdateService : RemoteViewsService() {
 
-     override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
-        return  Factory(applicationContext, intent)
-     }
+     override fun onGetViewFactory(intent: Intent) = Factory(applicationContext, intent)
 
 }

@@ -26,9 +26,7 @@ class Factory constructor(private var context: Context, intent: Intent) : Remote
 
     override fun getCount() = data.size
 
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
+    override fun getItemId(position: Int) = position.toLong()
 
     override fun getLoadingView(): RemoteViews? {
         return null

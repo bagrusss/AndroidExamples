@@ -20,9 +20,7 @@ class WidgetProvider : AppWidgetProvider() {
     private var sdf = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
 
 
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager,
-                          appWidgetIds: IntArray) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds)
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (i in appWidgetIds) {
             updateWidget(context, appWidgetManager, i)
         }
