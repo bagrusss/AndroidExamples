@@ -17,6 +17,8 @@ class MainActivity : DefaultMvvmActivity<ActivityMainBinding, MainVM>() {
     }
 
     override fun observeToLiveData(owner: AppCompatActivity) {
+        viewModel.run {
 
+        }
     }
 }
