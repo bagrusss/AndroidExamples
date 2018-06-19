@@ -41,7 +41,7 @@ abstract class EmptySingleInteractor<R>(subscribeScheduler: Scheduler,
 }
 
 abstract class CompletableInteractor<P>(private val subscribeScheduler: Scheduler,
-                                     private val observeScheduler: Scheduler) {
+                                        private val observeScheduler: Scheduler) {
 
     fun interact(params: P): Completable = buildPublisher(params).subscribeOn(subscribeScheduler)
                                                                  .observeOn(observeScheduler)
