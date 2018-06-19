@@ -7,7 +7,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
-abstract class MvvmActivity<DB: ViewDataBinding, VM: ViewModel, LH: LifecycleHandler>: AppCompatActivity() {
+abstract class MvvmActivity<DB: ViewDataBinding, VM: ViewModel, LH: LifecycleHandler<VM>>: AppCompatActivity() {
 
     protected abstract val layoutId: Int
     protected abstract val viewModelClass: Class<VM>
