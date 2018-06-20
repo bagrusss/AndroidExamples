@@ -1,6 +1,7 @@
 package ru.bagrusss.clean_mvvm.rx
 
 import io.reactivex.Completable
+import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -21,4 +22,13 @@ fun completable(func: () -> Unit): Completable = Completable.create {
 fun <R> single(func: () -> R): Single<R> = Single.create<R> {
     val result = func()
     it.onSuccess(result)
+}
+
+fun <R> maybe(func: () -> R?): Maybe<R> = Maybe.create {
+    val result = func()
+    if (result != null)  {
+        it.onSuccess(result)
+    } else {
+        it.onComplete()
+    }
 }

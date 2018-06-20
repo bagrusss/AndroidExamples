@@ -36,6 +36,8 @@ interface AppComponent : AndroidInjector<DemoApp> {
 
         fun androidModule(module: AndroidModule): Builder
 
+        fun storagesModule(module: StoragesModule): Builder
+
         fun build(): AppComponent
 
     }
