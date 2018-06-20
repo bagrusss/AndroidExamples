@@ -6,6 +6,6 @@ import dagger.Module
  * Created by bagrusss on 19.06.18
  */
 @Module
-class FragmentBindModule {
+abstract class FragmentBindModule {
 
 }

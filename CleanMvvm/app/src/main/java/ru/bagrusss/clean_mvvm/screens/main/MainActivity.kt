@@ -14,6 +14,7 @@ class MainActivity : DefaultMvvmActivity<ActivityMainBinding, MainVM>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+        injector.inject(viewModel)
     }
 
     override fun observeToLiveData(owner: AppCompatActivity) {

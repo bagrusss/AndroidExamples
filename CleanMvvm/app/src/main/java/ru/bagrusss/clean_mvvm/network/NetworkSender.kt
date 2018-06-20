@@ -5,7 +5,7 @@ import io.reactivex.Single
 /**
  * Created by bagrusss on 19.06.18
  */
-interface NetwotkSender {
+interface NetworkSender {
 
     fun getHelloForUser(userId: String): Single<String>
 }

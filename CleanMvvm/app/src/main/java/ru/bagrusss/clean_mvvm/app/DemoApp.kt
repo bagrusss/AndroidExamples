@@ -9,10 +9,13 @@ import ru.bagrusss.clean_mvvm.di.DaggerAppComponent
  */
 class DemoApp: DaggerMultidexAppication() {
 
+
+    val injector = DaggerAppComponent.builder()
+                                     .application(this)
+                                     .build()
+
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder()
-                                 .application(this)
-                                 .build()
+        return injector
     }
 
 }

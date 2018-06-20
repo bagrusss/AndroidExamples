@@ -8,9 +8,9 @@ import ru.bagrusss.clean_mvvm.rx.EmptySingleInteractor
 /**
  * Created by bagrusss on 19.06.18
  */
-class ServerTextInteractor(private val demoRepository: DemoRepository,
-                           subscribeScheduler: Scheduler,
-                           observeScheduler: Scheduler): EmptySingleInteractor<String>(subscribeScheduler, observeScheduler) {
+class DemoInteractor(private val demoRepository: DemoRepository,
+                     subscribeScheduler: Scheduler,
+                     observeScheduler: Scheduler): EmptySingleInteractor<String>(subscribeScheduler, observeScheduler) {
 
 
     override fun buildPublisher(params: Unit): Single<String> {
