@@ -1,5 +1,6 @@
 package ru.bagrusss.clean_mvvm.network.api
 
+import ru.bagrusss.clean_mvvm.network.model.RawUser
 import ru.bagrusss.clean_mvvm.rx.single
 
 /**
@@ -10,6 +11,15 @@ class UserApiFakeImpl: UserApi {
     override fun getHelloForUser(usetId: String) = single {
         Thread.sleep(3000)
         "Привет, $usetId"
+    }
+
+    override fun getUserById(userId: String) = single {
+        Thread.sleep(3000)
+        RawUser().apply {
+            id = "100500"
+            firstName = "Test"
+            lastName = "Only"
+        }
     }
 
 }
