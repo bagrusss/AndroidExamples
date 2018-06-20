@@ -8,6 +8,7 @@ import ru.bagrusss.clean_mvvm.rx.single
 class UserApiFakeImpl: UserApi {
 
     override fun getHelloForUser(usetId: String) = single {
+        Thread.sleep(3000)
         "Привет, $usetId"
     }
 
