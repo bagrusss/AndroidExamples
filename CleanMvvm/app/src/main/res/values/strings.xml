@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CleanMvvm</string>
+    <string name="click_me">Нажми меня</string>
 </resources>
