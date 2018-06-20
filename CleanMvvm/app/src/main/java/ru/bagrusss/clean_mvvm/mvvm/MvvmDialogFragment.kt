@@ -9,6 +9,8 @@ import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ru.bagrusss.clean_mvvm.app.DemoApp
+import ru.bagrusss.clean_mvvm.di.AppComponent
 
 /**
  * Created by bagrusss on 05.06.2018
@@ -25,6 +27,9 @@ abstract class MvvmDialogFragment<VM: DefaultViewModel, LH: LifecycleHandler<VM>
     protected lateinit var viewModel: VM
 
     abstract val viewModelClass: Class<VM>
+
+    val injector: AppComponent
+        get() = (context!!.applicationContext as DemoApp).injector
 
     final override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(layoutInflater, layoutId, container, false)

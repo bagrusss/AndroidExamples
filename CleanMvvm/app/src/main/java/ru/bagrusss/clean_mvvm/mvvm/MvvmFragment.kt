@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.DaggerFragment
+import ru.bagrusss.clean_mvvm.app.DemoApp
+import ru.bagrusss.clean_mvvm.di.AppComponent
 
 /**
  * Created by bagrusss on 29.05.2018
@@ -25,6 +27,9 @@ abstract class MvvmFragment<DB : ViewDataBinding, VM : DefaultViewModel, LH : Li
     protected lateinit var viewModel: VM
 
     abstract val viewModelClass: Class<VM>
+
+    val injector: AppComponent
+        get() = (context!!.applicationContext as DemoApp).injector
 
     protected abstract fun observeToLiveData(owner: LifecycleOwner)
 
