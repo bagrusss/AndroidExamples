@@ -30,8 +30,8 @@ abstract class MvvmActivity<DB : ViewDataBinding, VM : ViewModel, LH : Lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)
-        lifecycle.addObserver(lifecycleHandler)
         viewModel = ViewModelProviders.of(this)[viewModelClass]
+        lifecycle.addObserver(lifecycleHandler)
         observeToLiveData(this)
     }
 }
