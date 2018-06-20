@@ -6,6 +6,11 @@ import io.reactivex.disposables.CompositeDisposable
 import ru.bagrusss.clean_mvvm.provider.ResourceProvider
 import javax.inject.Inject
 
+/**
+ * Created by bagrusss on 19.06.18
+ * ViewModel, которая ничего не знает о контекстных зависимостях
+ */
+
 abstract class DefaultViewModel: ViewModel() {
 
     protected val disposables = CompositeDisposable()
