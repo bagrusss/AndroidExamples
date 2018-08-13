@@ -8,9 +8,9 @@ import ru.bagrusss.clean_mvvm.rx.single
  */
 class UserApiFakeImpl: UserApi {
 
-    override fun getHelloForUser(usetId: String) = single {
+    override fun getHelloForUser(userId: String) = single {
         Thread.sleep(3000)
-        "Привет, $usetId"
+        "Привет, $userId"
     }
 
     override fun getUserById(userId: String) = single {
