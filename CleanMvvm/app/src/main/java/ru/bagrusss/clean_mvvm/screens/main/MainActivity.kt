@@ -3,7 +3,6 @@ package ru.bagrusss.clean_mvvm.screens.main
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.Toast
 import ru.bagrusss.clean_mvvm.R
 import ru.bagrusss.clean_mvvm.databinding.ActivityMainBinding
@@ -30,11 +29,8 @@ class MainActivity : DefaultMvvmActivity<MainData, ActivityMainBinding, MainVM>(
                 Toast.makeText(owner, it!!, Toast.LENGTH_LONG)
                      .show()
             })
-            showProgressEvent.observe(owner, Observer {
-                binding.progressBar.visibility = View.VISIBLE
-            })
-            hideProgressEvent.observe(owner, Observer {
-                binding.progressBar.visibility = View.GONE
+            progressEvent.observe(owner, Observer {
+                data.progressVisible.set(it!!)
             })
         }
     }

@@ -1,5 +1,6 @@
 package ru.bagrusss.clean_mvvm.screens.main
 
+import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 
 /**
@@ -7,4 +8,5 @@ import android.databinding.ObservableField
  */
 class MainData {
     val helloText = ObservableField<String>()
+    val progressVisible = ObservableBoolean(false)
 }
