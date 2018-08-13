@@ -31,8 +31,7 @@ class UserStorageRealmImpl(private val config: RealmConfiguration) : UserStorage
 
     override fun storeUser(user: User) = completable {
         Realm.getInstance(config).use {
-            val realmUser = user.toRealm()
-            it.insertOrUpdate(realmUser)
+            it.insertOrUpdate(user.toRealm())
         }
     }
 
