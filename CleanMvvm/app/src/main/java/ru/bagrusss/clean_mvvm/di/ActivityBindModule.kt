@@ -8,8 +8,8 @@ import ru.bagrusss.clean_mvvm.screens.main.MainActivity
  * Created by bagrusss on 19.06.18
  */
 @Module
-abstract class ActivityBindModule {
+interface ActivityBindModule {
 
     @ContributesAndroidInjector
-    abstract fun bindMainActitivy(): MainActivity
+    fun bindMainActitivy(): MainActivity
 }
