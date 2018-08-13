@@ -1,7 +1,5 @@
 package ru.bagrusss.clean_mvvm.app
 
-import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
 import io.realm.Realm
 import ru.bagrusss.clean_mvvm.di.AndroidModule
 import ru.bagrusss.clean_mvvm.di.DaggerAppComponent
@@ -18,9 +16,7 @@ class DemoApp: DaggerMultidexAppication() {
                                      .storagesModule(StoragesModule(this))
                                      .build()
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return injector
-    }
+    override fun applicationInjector() = injector
 
     override fun onCreate() {
         super.onCreate()
