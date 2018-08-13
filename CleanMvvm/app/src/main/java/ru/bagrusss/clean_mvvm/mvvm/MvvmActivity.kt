@@ -7,6 +7,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import dagger.android.support.DaggerAppCompatActivity
+import ru.bagrusss.clean_mvvm.BR
 import ru.bagrusss.clean_mvvm.app.DemoApp
 import ru.bagrusss.clean_mvvm.di.AppComponent
 
@@ -29,8 +30,10 @@ abstract class MvvmActivity<DB : ViewDataBinding, VM : ViewModel, LH : Lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, layoutId)
         viewModel = ViewModelProviders.of(this)[viewModelClass]
+        binding = DataBindingUtil.setContentView<DB>(this, layoutId).apply {
+            setVariable(BR.viewModel, viewModel)
+        }
         lifecycle.addObserver(lifecycleHandler)
         observeToLiveData(this)
     }
