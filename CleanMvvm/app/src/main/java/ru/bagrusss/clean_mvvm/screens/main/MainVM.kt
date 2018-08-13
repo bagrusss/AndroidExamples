@@ -14,11 +14,11 @@ import javax.inject.Inject
  */
 class MainVM: DefaultViewModel() {
 
-    @JvmField val helloText = ObservableField<String>()
-
     @Inject lateinit var demoInteractor: DemoInteractor
 
     val textUpdateEvent = MutableLiveData<String>()
+
+    val newTextEvent = MutableLiveData<String>()
 
     // можно сделать через databinding, но это демо и представим, что здесь сложная вьюха
     val showProgressEvent = EmptyLiveData()
@@ -28,12 +28,12 @@ class MainVM: DefaultViewModel() {
         showProgressEvent.post()
         disposables += demoInteractor.interact()
                                      .subscribe({
-                                         helloText.set(it)
+                                         newTextEvent.value = it
                                          textUpdateEvent.value = "Обновлено"
                                          hideProgressEvent.post()
                                      }) {
                                          val defaultErrorText = resourceProvider.get().provideString(R.string.error)
-                                         helloText.set(defaultErrorText)
+                                         newTextEvent.value = defaultErrorText
                                          hideProgressEvent.post()
                                      }
     }
