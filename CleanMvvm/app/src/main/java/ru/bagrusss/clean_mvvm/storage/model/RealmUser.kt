@@ -46,3 +46,4 @@ interface Mapper<ENTITY, OTHER> {
 
     fun OTHER.toEntity(): ENTITY
 }
+
